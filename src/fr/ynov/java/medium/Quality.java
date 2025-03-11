@@ -1,8 +1,10 @@
+package fr.ynov.java.medium;
+
 import java.util.Objects;
 
 public class Quality {
-    private int id;
-    private String name;
+    private final int id;
+    private final String name;
 
     Quality(int id, String name) {
         this.id = id;
