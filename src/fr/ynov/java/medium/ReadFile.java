@@ -11,16 +11,17 @@ import static java.nio.file.StandardOpenOption.APPEND;
 import static java.nio.file.StandardOpenOption.CREATE;
 
 public class ReadFile {
-    public static void readFile(String filePath) {
+    public static String readFile(String filePath) {
         Charset charset = StandardCharsets.US_ASCII;
         try (BufferedReader reader = Files.newBufferedReader(Path.of(filePath), charset)) {
             String line = null;
             while ((line = reader.readLine()) != null) {
-                System.out.println(line);
+                return line;
             }
         } catch (IOException x) {
             System.err.format("IOException: %s%n", x);
         }
+        return "";
     }
 
     public static String[] filesInFolder(String folderPath) {
