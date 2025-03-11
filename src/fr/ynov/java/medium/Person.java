@@ -6,19 +6,20 @@ public class Person {
     private final String gender;
     private final float height;
     private final float weight;
-    private final Nationality nationality;
+    private Nationality nationality;
 
-    public Person(String name, int age, String gender, float height, float weight, Nationality nationality) {
+    public Person(String name, int age, String gender, float height, float weight, Nationality nationalityArg) {
         this.name = name;
         this.age = age;
         this.gender = gender;
         this.height = height;
         this.weight = weight;
-        this.nationality = nationality;
+        this.nationality = nationalityArg;
     }
 
     public static void main(String[] args) {
-
+        Person person = new Person("John", 25, "Male", 1.80f, 80.F, Nationality.France);
+        person.printPerson();
     }
 
     public void printPerson() {
@@ -27,6 +28,7 @@ public class Person {
         System.out.println(this.gender);
         System.out.println(this.height);
         System.out.println(this.weight);
-
+        System.out.println(this.nationality);
     }
+
 }
