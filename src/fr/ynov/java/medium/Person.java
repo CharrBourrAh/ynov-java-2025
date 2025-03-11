@@ -6,7 +6,7 @@ public class Person {
     private final String gender;
     private final float height;
     private final float weight;
-    private Nationality nationality;
+    private final Nationality nationality;
 
     public Person(String name, int age, String gender, float height, float weight, Nationality nationalityArg) {
         this.name = name;
