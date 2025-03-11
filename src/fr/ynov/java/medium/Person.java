@@ -27,7 +27,7 @@ public class Person {
         cal.set(1990, Calendar.FEBRUARY, 1);
         Person person = new Person("John", cal, "Male", 1.80f, 80.F, Nationality.France);
         person.printPerson();
-        System.out.println(person.age());
+System.out.println(person.age());
     }
 
     public void printPerson() {
