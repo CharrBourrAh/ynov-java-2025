@@ -7,7 +7,6 @@ public class DisplayCmd {
 
     public DisplayCmd(Game game) {
         this.gameInstance = game;
-        display();
     }
 
     public void display() {
@@ -15,23 +14,25 @@ public class DisplayCmd {
         Classes playerTwo = null;
         while (gameInstance.isGameStatus()) {
             try {
-                playerOne = choice(1, playerOne);
+                playerOne = choice(1);
 
             } catch (Exception e) {
                 System.out.println("Please enter an int between 1 and 3.");
                 display();
             }
             try {
-                playerTwo = choice(2, playerTwo);
+                playerTwo = choice(2);
             } catch (Exception e) {
                 System.out.println("Please enter an int between 1 and 3.");
                 display();
             }
-
+            assert playerOne != null;
+            assert playerTwo != null;
+            gameInstance.checkStatus(playerOne, playerTwo);
         }
     }
 
-    public Classes choice(int playerNumber, Classes varName) {
+    public Classes choice(int playerNumber) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Player " + playerNumber + ", Choose a class");
         System.out.println("1 - Rock");
@@ -39,10 +40,18 @@ public class DisplayCmd {
         System.out.println("3 - Scissors");
         int classNamePlayer = Integer.parseInt(scanner.nextLine());
         return switch (classNamePlayer) {
-            case 1 -> varName = new Rock();
-            case 2 -> varName = new Paper();
-            case 3 -> varName = new Scissors();
+            case 1 -> new Rock();
+            case 2 -> new Paper();
+            case 3 -> new Scissors();
             default -> throw new IllegalArgumentException("Invalid class");
         };
+    }
+
+    public void victory(int playerNumber) {
+        System.out.println("Player " + playerNumber + " has won!");
+    }
+
+    public void tie() {
+        System.out.println("That's a tie !");
     }
 }

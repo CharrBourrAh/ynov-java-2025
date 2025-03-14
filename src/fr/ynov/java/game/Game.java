@@ -5,21 +5,31 @@ public class Game {
         return gameStatus;
     }
 
-    public void setGameStatus(boolean gameStatus) {
-        this.gameStatus = gameStatus;
-    }
-
     private boolean gameStatus;
+    DisplayCmd cmd;
 
     public Game() {
         gameStatus = true;
+        this.cmd = new DisplayCmd(this);
     }
 
     public void launchGame() {
-        DisplayCmd cmd = new DisplayCmd(this);
+        cmd.display();
     }
 
-    public void checkStatus(Classes playerTwo) {
-
+    public void checkStatus(Classes playerOne, Classes playerTwo) {
+        switch (playerOne.check(playerTwo)) {
+            case 0:
+                gameStatus = false;
+                cmd.victory(1);
+                break;
+            case 1:
+                cmd.tie();
+                break;
+            case 2:
+                gameStatus = false;
+                cmd.victory(2);
+                break;
+        }
     }
 }
