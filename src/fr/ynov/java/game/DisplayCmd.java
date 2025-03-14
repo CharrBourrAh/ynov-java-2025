@@ -34,6 +34,7 @@ public class DisplayCmd {
 
     public Classes choice(int playerNumber) {
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Score : Player 1 : "+ gameInstance.getScorePlayerOne()+ " points - Player 2 : "+ gameInstance.getScorePlayerTwo()+ " points");
         System.out.println("Player " + playerNumber + ", Choose a class");
         System.out.println("1 - Rock");
         System.out.println("2 - Paper");
